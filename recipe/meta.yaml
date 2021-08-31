@@ -11,7 +11,7 @@ source:
   sha256: 3eee9918e815d2638a33845bae5bcf4a9feb05d24d0bdd28be9f4951349097f1
 
 build:
-  number: 1 
+  number: 1
   noarch: python
   entry_points:
     - huggingface-cli=huggingface_hub.commands.huggingface_cli:main
