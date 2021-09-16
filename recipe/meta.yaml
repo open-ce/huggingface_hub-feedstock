@@ -11,25 +11,23 @@ source:
   sha256: 3eee9918e815d2638a33845bae5bcf4a9feb05d24d0bdd28be9f4951349097f1
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - huggingface-cli=huggingface_hub.commands.huggingface_cli:main
   script: {{ PYTHON }} -m pip install . -vv
-  script_env:
-    - HUGGINGFACE_CO_STAGING=yes
 
 requirements:
   host:
-    - pip
-    - python >=3.6.0
+    - pip {{ pip }}
+    - python
   run:
     - filelock
-    - python >=3.6.0
-    - packaging >=20.9
-    - requests
-    - tqdm
-    - typing-extensions
+    - python
+    - packaging
+    - requests {{ requests }}
+    - tqdm  {{ tqdm }}
+    - typing-extensions  {{ typing_extensions }}
     # Only required for [py<38] but always include so this can be noarch: python
     - importlib_metadata
 
@@ -40,21 +38,19 @@ test:
   commands:
     - pip check
     - huggingface-cli --help
-    - pytest -sv ./tests/
   requires:
     - git
     - git-lfs
     - pip
-    - pytest
-  source_files:
-    - tests
 
 about:
   home: https://github.com/huggingface/huggingface_hub
   summary: Client library to download and publish models on the huggingface.co hub
+  description: Client library to download and publish models on the huggingface.co hub
   license: Apache-2.0
+  license_family: APACHE
   license_file: LICENSE
 
 extra:
   recipe-maintainers:
-    - BastianZim
+    - open-ce/open-ce-dev-team

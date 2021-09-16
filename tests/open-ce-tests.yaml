@@ -1,0 +1,11 @@
+tests:
+  - name: Setup huggingface_hub Tests
+    command: |
+        conda install -y git pytest
+        git clone --recursive -b v$(python -c "import huggingface_hub; print(huggingface_hub.__version__)") https://github.com/huggingface/huggingface_hub.git	
+  - name: Run huggingface_hub tests
+    command: |
+          cd huggingface_hub
+          pytest --ignore='tests/test_repository.py' -k "not test_download_model" -v ./tests/
+  - name: Clean tests
+    command: rm -rf huggingface_hub
