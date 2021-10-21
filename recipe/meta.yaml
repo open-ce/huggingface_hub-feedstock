@@ -28,7 +28,7 @@ requirements:
     - requests {{ requests }}
     - tqdm  {{ tqdm }}
     - typing-extensions  {{ typing_extensions }}
-    - pyyaml {{pyyaml}}
+    - pyyaml {{ pyyaml }}
     # Only required for [py<38] but always include so this can be noarch: python
     - importlib_metadata
 
