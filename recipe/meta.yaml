@@ -1,5 +1,5 @@
 {% set name = "huggingface_hub" %}
-{% set version = "0.0.19" %}
+{% set version = "0.4.0" %}
 
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://github.com/huggingface/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 72621edcc2d6c2ca62a70c12f28a89345fc44b9dc7bc175a5ae3a6e7c6d6ad24
+  sha256: b64506bfe8f7346c0b3b5f60a8903ca30a3b72027769ccf8654ae54356043189
 
 build:
   number: 1
   noarch: python
   entry_points:
     - huggingface-cli=huggingface_hub.commands.huggingface_cli:main
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
