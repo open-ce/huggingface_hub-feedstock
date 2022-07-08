@@ -6,6 +6,6 @@ tests:
   - name: Run huggingface_hub tests
     command: |
           cd huggingface_hub
-          pytest --ignore='tests/test_repository.py' -k "not test_download_model" -v ./tests/
+          pytest --ignore='tests/test_repository.py' --ignore 'tests/test_inference_api.py' --ignore 'tests/test_snapshot_download.py' -k "not test_download_model" -v ./tests/
   - name: Clean tests
     command: rm -rf huggingface_hub
