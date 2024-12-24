@@ -30,7 +30,7 @@ requirements:
     - typing-extensions  {{ typing_extensions }}
     - pyyaml {{ pyyaml }}
     # Only required for [py<38] but always include so this can be noarch: python
-    - importlib_metadata
+    - importlib_metadata 6.*
 
 test:
   imports:
